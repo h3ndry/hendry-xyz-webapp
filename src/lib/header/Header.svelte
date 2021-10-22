@@ -1,31 +1,45 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import logo from './svelte-logo.svg';
+
+	let showMenu = false;
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
+	<div class="inner">
+		<a class="nav-title-link" href="https://hendry.xyz">
+			<h2 class="nav-title">S Hendry</h2>
+			<!--
 			<img src={logo} alt="SvelteKit" />
+            -->
 		</a>
-	</div>
 
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
-			<li class:active={$page.path === '/todos'}><a sveltekit:prefetch href="/todos">Todos</a></li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
+		<svg
+			class="menu"
+			xml:space="preserve"
+			viewBox="0 0 500 500"
+			on:click={() => (showMenu = !showMenu)}
+		>
+			<g transform="matrix(1.3333333,0,0,-1.3333333,-66.326109,633.05707)">
+				<path d="M 62.297785,369.40376 H 413.47816" />
+				<path d="M 178.86043,205.22075 H 413.28827" />
+				<path d="M 62.67053,287.30031 H 413.36485" />
+			</g></svg
+		>
 
-	<div class="corner">
-		<!-- TODO put something else here? github link? -->
+		<nav class:active={showMenu}>
+			<ul>
+				<li class:active={$page.path === '/'}>
+					<a sveltekit:prefetch href="/">Post</a>
+				</li>
+				<li class:active={$page.path === '/todos'}>
+					<a sveltekit:prefetch href="/todos">Projects</a>
+				</li>
+				<li class:active={$page.path === '/about'}>
+					<a sveltekit:prefetch href="/about">About</a>
+				</li>
+			</ul>
+		</nav>
 	</div>
 </header>
 
@@ -33,49 +47,69 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+		margin: 0;
+		box-shadow: 0 2px 2px -2px rgb(255 255 255 / 10%);
+		position: relative;
 	}
 
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
+	.inner {
+		width: 90%;
+		max-width: 800px;
+		margin: 1rem auto;
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
+		justify-content: space-between;
+
+		margin: 0 auto;
 	}
 
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
+	.menu {
+		position: relative;
+		display: block;
+		width: 4rem;
+		height: 4rem;
+		z-index: 99999999;
+	}
+
+	.menu path {
+		fill: none;
+		stroke: var(--secondary-color);
+		stroke-width: 22.5;
+		stroke-linecap: round;
 	}
 
 	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+		position: absolute;
+		display: none;
+		right: 0;
+		background-color: #2b2b2b;
+		width: 50%;
+		height: 100vh;
+		padding: 8rem 0rem 0rem 1rem;
 	}
-
-	svg {
-		width: 2em;
-		height: 3em;
+	nav.active {
 		display: block;
 	}
 
-	path {
-		fill: var(--background);
+	.nav-title {
+		font-family: var(--font-mono);
+		margin: 0;
+		font-size: 1.2rem;
+		font-weight: bold;
+		color: var(--secondary-color);
+	}
+
+	.nav-title-link {
+		text-decoration: none;
+		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	ul {
 		position: relative;
 		padding: 0;
 		margin: 0;
-		height: 3em;
-		display: flex;
 		justify-content: center;
 		align-items: center;
 		list-style: none;
@@ -86,35 +120,61 @@
 	li {
 		position: relative;
 		height: 100%;
+		margin: 2rem 0;
 	}
 
-	li.active::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--accent-color);
+	li.active {
+		border-bottom: solid var(--secondary-color) 1px;
 	}
 
 	nav a {
+		font-family: var(--font-mono);
 		display: flex;
 		height: 100%;
 		align-items: center;
 		padding: 0 1em;
-		color: var(--heading-color);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
 		text-decoration: none;
-		transition: color 0.2s linear;
+
+		/* padding: 2rem 0rem; */
 	}
 
 	a:hover {
 		color: var(--accent-color);
+	}
+
+	a:visited {
+		color: var(--secondary-color);
+	}
+
+	@media (min-width: 450px) {
+		.menu {
+			display: none;
+		}
+
+        .inner {
+            margin: 1rem auto;
+        }
+
+		.nav-title {
+			font-size: 1.5rem;
+		}
+
+		nav {
+            position: unset;
+            display: flex;
+			height: auto;
+			width: auto;
+			background-color: transparent;
+			padding: 0;
+		}
+
+
+		ul {
+			display: flex;
+		}
+
+        li {
+            margin: 0;
+        }
 	}
 </style>
