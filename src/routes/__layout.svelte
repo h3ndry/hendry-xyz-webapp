@@ -10,7 +10,7 @@
 </main>
 
 <footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+	<small> &copy; { new Date().getFullYear() } Made with <a href="https://kit.svelte.dev/">SvelteKit</a> using <a href="https://neovim.io/">Neovim</a> </small>
 </footer>
 
 <style>
