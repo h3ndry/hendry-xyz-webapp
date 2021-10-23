@@ -1,50 +1,67 @@
-<script context="module">
-	import { browser, dev } from '$app/env';
-
-	// we don't need any JS on this page, though we'll load
-	// it in dev so that we get hot module replacement...
-	export const hydrate = dev;
-
-	// ...but if the client-side router is already loaded
-	// (i.e. we came here from elsewhere in the app), use it
-	export const router = browser;
-
-	// since there's no dynamic data here, we can prerender
-	// it so that it gets served as a static asset in prod
+<script context="module" lang="ts">
 	export const prerender = true;
+
+	export async function load({ fetch }) {
+		const res = await fetch('http://localhost:1337/aboutpage');
+		const data = await res.json();
+
+		return {
+			props: { data }
+		};
+	}
+</script>
+
+<script lang="ts">
+	import Counter from '$lib/Counter.svelte';
+	import showdown from 'showdown';
+
+	export let data;
+
+	const conv = new showdown.Converter();
+	const html = conv.makeHtml(data.text);
+	console.log(data);
 </script>
 
 <svelte:head>
 	<title>About</title>
 </svelte:head>
 
-<div class="content">
-	<h1>About this app</h1>
+<section>
+	<div class="post-info">
+		<span>Written by</span>
+		Hendry
+	</div>
+	<h1 class="post-title">About</h1>
+	<div class="post-line" />
 
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<!-- TODO lose the @next! -->
-	<pre>npm init svelte@next</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/todos">TODOs</a> page illustrates SvelteKit's data loading and form handling. Try using
-		it with JavaScript disabled!
-	</p>
-</div>
+	<div class="text">
+		{@html html}
+	</div>
+</section>
 
 <style>
-	.content {
-		width: 100%;
-		max-width: var(--column-width);
-		margin: var(--column-margin-top) auto 0 auto;
+	.post-line {
+		display: block;
+		width: 4rem;
+		border-top: 0.4rem solid rgb(54, 54, 54);
+		margin: 0px auto 3rem;
+	}
+
+	.post-info {
+		font-family: Palatino, 'Palatino LT STD', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+		letter-spacing: 0.5px;
+		text-align: center;
+	}
+
+.post-info span {
+    font-style: italic;
+}
+
+	.post-title {
+		font-family: var(--font-mono);
+		font-size: 4rem;
+		text-align: center;
+        padding: 0;
+		margin: .3rem 0px;
 	}
 </style>

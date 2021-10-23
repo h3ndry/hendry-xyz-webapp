@@ -47,7 +47,7 @@
 	header {
 		display: flex;
 		justify-content: space-between;
-		margin: 0;
+		margin: 0 0 3rem 0;
 		box-shadow: 0 2px 2px -2px rgb(255 255 255 / 10%);
 		position: relative;
 	}

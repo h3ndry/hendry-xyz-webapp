@@ -26,15 +26,14 @@
 	}
 
 	footer {
+        font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		padding: 40px;
-	}
+        border-top: solid 1px rgba(255, 255, 255, 0.1)
 
-	footer a {
-		font-weight: bold;
 	}
 
 	@media (min-width: 480px) {
