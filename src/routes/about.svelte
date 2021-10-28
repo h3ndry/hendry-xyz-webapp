@@ -6,6 +6,7 @@
 		const data = await res.json();
 
 		return {
+			/* error: new Error(`Could not load`), */
 			props: { data }
 		};
 	}

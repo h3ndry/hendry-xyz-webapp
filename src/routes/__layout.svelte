@@ -32,7 +32,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 40px;
-        border-top: solid 1px rgba(255, 255, 255, 0.1)
+        /* border-top: solid 1px rgba(255, 255, 255, 0.1) */
 
 	}
 
