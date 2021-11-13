@@ -13,8 +13,9 @@
 </script>
 
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
-	import showdown from 'showdown';
+	import { markdown2html } from '$lib/convert';
+	import Line from '$lib/Line.svelte';
+	import WrittenBy from '$lib/WrittenBy.svelte';
 
 	export let data;
 
@@ -33,7 +34,7 @@
 		Hendry
 	</div>
 	<h1 class="post-title">About</h1>
-	<div class="post-line" />
+   <Line /> 
 
 	<div class="text">
 		{@html html}
@@ -41,28 +42,19 @@
 </section>
 
 <style>
-	.post-line {
-		display: block;
-		width: 4rem;
-		border-top: 0.4rem solid rgb(54, 54, 54);
-		margin: 0px auto 3rem;
+	h1 {
+		margin-bottom: 0;
 	}
 
-	.post-info {
-		font-family: Palatino, 'Palatino LT STD', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
-		letter-spacing: 0.5px;
-		text-align: center;
+	center {
+		margin-bottom: 4rem;
 	}
-
-.post-info span {
-    font-style: italic;
-}
 
 	.post-title {
 		font-family: var(--font-mono);
 		font-size: 4rem;
 		text-align: center;
-        padding: 0;
-		margin: .3rem 0px;
+		padding: 0;
+		margin: 0.3rem 0px;
 	}
 </style>
