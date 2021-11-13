@@ -1,14 +1,11 @@
 <script context="module" lang="ts">
 	export const prerender = true;
 
-	export async function load({ page }) {
+	export async function load() {
 		const res = await fetch('http://localhost:1337/articles');
 		const articles = await res.json();
 
-        /* console.log(page) */
-
 		return {
-			/* error: new Error(`Could not load`), */
 			props: { articles }
 		};
 	}
@@ -18,26 +15,23 @@
 	/* import Counter from '$lib/Counter.svelte'; */
 	import PostCard from '$lib/PostCard.svelte';
 
-interface Articles {
-  name: string;
-  id: number;
-}
+	interface Articles {
+		name: string;
+		id: number;
+	}
 
-    export let articles:Articles[];
-
-    console.log(articles)
-
+	export let articles: Articles[];
 </script>
+
 <svelte:head>
 	<title>Home</title>
 </svelte:head>
 
-<section> 
-{#each articles as article (article.id)}
-	<PostCard {...article} />
-{/each}
+<section>
+	{#each articles as article (article.id)}
+		<PostCard {...article} />
+	{/each}
 </section>
 
-<style> 
-
+<style>
 </style>

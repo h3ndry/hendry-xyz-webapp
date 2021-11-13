@@ -18,10 +18,6 @@
 	import WrittenBy from '$lib/WrittenBy.svelte';
 
 	export let data;
-
-	const conv = new showdown.Converter();
-	const html = conv.makeHtml(data.text);
-	console.log(data);
 </script>
 
 <svelte:head>
@@ -29,15 +25,14 @@
 </svelte:head>
 
 <section>
-	<div class="post-info">
-		<span>Written by</span>
-		Hendry
-	</div>
+    <WrittenBy name="Hendry" date="" />
 	<h1 class="post-title">About</h1>
-   <Line /> 
+	<center>
+		<Line width={5} />
+	</center>
 
 	<div class="text">
-		{@html html}
+		{@html markdown2html(data.text)}
 	</div>
 </section>
 
