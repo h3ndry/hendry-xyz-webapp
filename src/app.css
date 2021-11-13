@@ -7,7 +7,7 @@
 	--primary-color: #1f1f1f;
 	--secondary-color: #bfbfbf;
 	--tertiary-color: #edf0f8;
-	--accent-color: #ff3e00;
+	--accent-color: #99c2e6;
 	--heading-color: rgba(0, 0, 0, 0.7);
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
@@ -37,12 +37,15 @@ body {
 
 p {
 	line-height: 1.5;
+    display: block;
+    text-align: justify;
+    /* word-break: break-all; */
 }
 
-/* a { */
-/* 	color: var(--accent-color); */
-/* 	text-decoration: none; */
-/* } */
+a {
+	color: var(--accent-color);
+	text-decoration: none;
+}
 
 a:hover {
 	text-decoration: underline;
@@ -56,9 +59,9 @@ h1 {
 pre {
 	font-size: 16px;
 	font-family: var(--font-mono);
-	background-color: rgba(255, 255, 255, 0.45);
+	background-color: rgba(255, 255, 255, 0.02);
 	border-radius: 3px;
-	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
+	/* box-shadow: 2px 2px 6px rgb(255 255 255 / 25%); */
 	padding: 0.5em;
 	overflow-x: auto;
 	color: var(--text-color);
@@ -74,8 +77,13 @@ button:focus:not(:focus-visible) {
 	outline: none;
 }
 
+code {
+    color: white;
+}
+
 @media (min-width: 720px) {
 	h1 {
 		font-size: 2.4rem;
+        margin: 0;
 	}
 }
