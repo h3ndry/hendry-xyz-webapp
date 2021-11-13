@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+	/* import logo from './svelte-logo.svg'; */
 
 	let showMenu = false;
 </script>
 
 <header>
 	<div class="inner">
-		<a class="nav-title-link" href="https://hendry.xyz">
+		<a class="nav-title-link" href="/">
 			<h2 class="nav-title">S Hendry</h2>
 			<!--
 			<img src={logo} alt="SvelteKit" />
@@ -29,8 +29,8 @@
 
 		<nav class:active={showMenu}>
 			<ul>
-				<li class:active={$page.path === '/'}>
-					<a sveltekit:prefetch href="/">Post</a>
+				<li class:active={$page.path === '/posts'}>
+					<a sveltekit:prefetch href="/">Posts</a>
 				</li>
 				<li class:active={$page.path === '/todos'}>
 					<a sveltekit:prefetch href="/todos">Projects</a>
