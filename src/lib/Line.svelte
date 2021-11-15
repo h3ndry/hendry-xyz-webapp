@@ -1,8 +1,6 @@
 <script>
-    export let width;
-
+	export let width;
 </script>
-
 
 <div class="line" style="width: {width}rem" />
 
@@ -11,7 +9,6 @@
 		height: 4px;
 		/* width: 3rem; */
 		background-color: #323232;
-        transition: all 0.3s ease-out 0s;
+		transition: all 0.3s ease-out 0s;
 	}
-    
 </style>
