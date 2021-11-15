@@ -151,30 +151,29 @@
 			display: none;
 		}
 
-        .inner {
-            margin: 1rem auto;
-        }
+		.inner {
+			margin: 1rem auto;
+		}
 
 		.nav-title {
 			font-size: 1.5rem;
 		}
 
 		nav {
-            position: unset;
-            display: flex;
+			position: unset;
+			display: flex;
 			height: auto;
 			width: auto;
 			background-color: transparent;
 			padding: 0;
 		}
 
-
 		ul {
 			display: flex;
 		}
 
-        li {
-            margin: 0;
-        }
+		li {
+			margin: 0;
+		}
 	}
 </style>
