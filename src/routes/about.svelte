@@ -25,7 +25,7 @@
 </svelte:head>
 
 <section>
-    <WrittenBy name="Hendry" date="" />
+	<WrittenBy name="Hendry" date="" />
 	<h1 class="post-title">About</h1>
 	<center>
 		<Line width={5} />
