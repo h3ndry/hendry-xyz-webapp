@@ -65,11 +65,15 @@
 	/*     width: 8rem; */
 	/* } */
 
+	time {
+		opacity: 0.7;
+	}
+
 	.title {
 		text-align: start;
 		display: block;
 		font-family: var(--font-mono);
-		font-size: 1.758rem;
+		font-size: 2rem;
 		font-weight: 700;
 		margin: 0.5rem 0px;
 	}

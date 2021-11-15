@@ -33,14 +33,25 @@
 	</div>
 </section>
 
-<style>
+<style lang="scss">
 	h1 {
 		font-family: var(--font-mono);
-		font-size: 4rem;
-		margin-bottom: 0rem;
+		font-size: 2rem;
+		margin: 0rem;
 	}
 
 	center {
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
+	}
+
+	@media (min-width: 720px) {
+		h1 {
+			font-size: 2.4rem;
+			font-size: 4rem;
+			margin: 0;
+		}
+		center {
+			margin-bottom: 4rem;
+		}
 	}
 </style>
