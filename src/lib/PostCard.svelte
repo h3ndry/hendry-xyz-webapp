@@ -1,23 +1,28 @@
 <script lang="ts">
-	import { spring } from 'svelte/motion';
 	import Line from '../lib/Line.svelte';
 
-	export let id: number;
+	/* export let id: number; */
 	export let title: string;
 	export let published_at: string;
 	export let description: string;
 	export let slug: string;
 
-	let count = 0;
+	const monthNames = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December'
+	];
 
-	const displayed_count = spring();
-	$: displayed_count.set(count);
-	$: offset = modulo($displayed_count, 1);
-
-	function modulo(n: number, m: number) {
-		// handle negative numbers
-		return ((n % m) + m) % m;
-	}
+	const date = new Date(published_at);
 
 	let width = 4;
 	function handleMouseover() {
@@ -27,7 +32,6 @@
 	function handleMouseout() {
 		width = 4;
 	}
-
 </script>
 
 <a
@@ -39,7 +43,9 @@
 	on:mouseout={handleMouseout}
 >
 	<div class="post-card">
-		<time datetime={published_at}>{new Date(published_at).toLocaleDateString()}</time>
+		<time datetime={published_at}
+			>{` ${monthNames[date.getMonth()]} ${date.getDay()}, ${date.getFullYear()}`}</time
+		>
 		<h1 class="title">{title}</h1>
 		<Line {width} />
 		<p>{description}</p>
