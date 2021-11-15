@@ -6,7 +6,7 @@
 		const articles = await res.json();
 
 		return {
-			props: { articles }
+			props: { articles: articles.reverse() }
 		};
 	}
 </script>
