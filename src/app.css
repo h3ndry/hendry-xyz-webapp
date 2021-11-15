@@ -1,8 +1,8 @@
 @import '@fontsource/fira-mono';
 
 :root {
-	font-family: "Libre Baskerville","Times New Roman",Times,serif;
-	--font-mono: "Helvetica Neue","Segoe UI",Helvetica,Arial,sans-serif;
+	--font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
+	--font-mono: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
 	--pure-white: #ffffff;
 	--primary-color: #1f1f1f;
 	--secondary-color: #bfbfbf;
@@ -18,15 +18,15 @@
 *,
 *:after,
 *:before {
-    box-sizing: border-box;
-        line-height: 1.5;
-    }
+	box-sizing: border-box;
+	line-height: 1.5;
+}
 
 body {
 	min-height: 100vh;
 	margin: 0;
 	background-color: var(--primary-color);
-    color: var(--secondary-color);
+	color: var(--secondary-color);
 }
 
 #svelte {
@@ -37,9 +37,9 @@ body {
 
 p {
 	line-height: 1.5;
-    display: block;
-    text-align: justify;
-    /* word-break: break-all; */
+	display: block;
+	text-align: justify;
+	/* word-break: break-all; */
 }
 
 a {
@@ -78,12 +78,12 @@ button:focus:not(:focus-visible) {
 }
 
 code {
-    color: white;
+	color: white;
 }
 
 @media (min-width: 720px) {
 	h1 {
 		font-size: 2.4rem;
-        margin: 0;
+		margin: 0;
 	}
 }
