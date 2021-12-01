@@ -8,7 +8,7 @@
 <header>
 	<div class="inner">
 		<a class="nav-title-link" href="/">
-			<h2 class="nav-title">S Hendry</h2>
+			<h2 class="nav-title">Hendry</h2>
 			<!--
 			<img src={logo} alt="SvelteKit" />
             -->

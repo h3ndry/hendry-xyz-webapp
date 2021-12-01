@@ -39,6 +39,7 @@ p {
 	line-height: 1.5;
 	display: block;
 	text-align: justify;
+    font-family: var(--font-family);
 	/* word-break: break-all; */
 }
 

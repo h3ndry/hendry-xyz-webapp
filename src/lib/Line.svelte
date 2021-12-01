@@ -7,7 +7,6 @@
 <style>
 	div {
 		height: 4px;
-		/* width: 3rem; */
 		background-color: #323232;
 		transition: all 0.3s ease-out 0s;
 	}

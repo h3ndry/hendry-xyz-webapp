@@ -12,8 +12,7 @@
 </script>
 
 <script lang="ts">
-	/* import Counter from '$lib/Counter.svelte'; */
-	import PostCard from '$lib/PostCard.svelte';
+	import PostCard from '$lib/cards/PostCard.svelte';
 
 	interface Articles {
 		name: string;
