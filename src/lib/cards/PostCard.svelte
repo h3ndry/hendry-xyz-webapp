@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Line from '../lib/Line.svelte';
+	import Line from '$lib/Line.svelte';
 
-	/* export let id: number; */
 	export let title: string;
 	export let published_at: string;
 	export let description: string;
@@ -52,29 +51,5 @@
 	</div>
 </a>
 
-<style>
-	.wraper-link {
-		display: block;
-		color: inherit;
-		text-decoration: none;
-		padding: 1.785rem 0;
-		border-bottom: solid 1px rgb(255 255 255 / 10%);
-	}
+<style src='./style.css'></style>
 
-	/*  .post-card:hover div { */
-	/*     width: 8rem; */
-	/* } */
-
-	time {
-		opacity: 0.7;
-	}
-
-	.title {
-		text-align: start;
-		display: block;
-		font-family: var(--font-mono);
-		font-size: 2rem;
-		font-weight: 700;
-		margin: 0.5rem 0px;
-	}
-</style>
