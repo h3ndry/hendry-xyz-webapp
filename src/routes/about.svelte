@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
 	export const prerender = true;
 	export async function load({ fetch }) {
-		const res = await fetch('http://localhost:1337/api/about-page');
+		const res = await fetch('https://hendry-xyz.herokuapp.com/api/about-page');
 		const res_json = await res.json();
 		return {
 			props: { res_json }
@@ -17,7 +17,6 @@
 
 	export let res_json: Data;
 
-	console.log(res_json)	
 </script>
 
 <svelte:head>
