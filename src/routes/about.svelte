@@ -1,13 +1,10 @@
 <script context="module" lang="ts">
 	export const prerender = true;
-
 	export async function load({ fetch }) {
-		const res = await fetch('http://localhost:1337/aboutpage');
-		const data = await res.json();
-
+		const res = await fetch('http://localhost:1337/api/about-page');
+		const res_json = await res.json();
 		return {
-			/* error: new Error(`Could not load`), */
-			props: { data }
+			props: { res_json }
 		};
 	}
 </script>
@@ -15,13 +12,16 @@
 <script lang="ts">
 	import { markdown2html } from '$lib/convert';
 	import Line from '$lib/Line.svelte';
+	import type { Data } from '$lib/types';
 	import WrittenBy from '$lib/WrittenBy.svelte';
 
-	export let data;
+	export let res_json: Data;
+
+	console.log(res_json)	
 </script>
 
 <svelte:head>
-	<title>About</title>
+	<title>About | Hendry's Website</title>
 </svelte:head>
 
 <section>
@@ -32,7 +32,8 @@
 	</center>
 
 	<div class="text">
-		{@html markdown2html(data.text)}
+
+		{@html markdown2html(res_json.data.attributes.text)}
 	</div>
 </section>
 

@@ -2,9 +2,11 @@
 	import Line from '$lib/Line.svelte';
 
 	export let title: string;
-	export let published_at: string;
+	export let publishedAt: string;
 	export let description: string;
 	export let slug: string;
+	export let updatedAt: string;
+	export let content: string;
 
 	const monthNames = [
 		'January',
@@ -21,7 +23,7 @@
 		'December'
 	];
 
-	const date = new Date(published_at);
+	const date = new Date(publishedAt);
 
 	let width = 4;
 	function handleMouseover() {
@@ -42,7 +44,7 @@
 	on:mouseout={handleMouseout}
 >
 	<div class="post-card">
-		<time datetime={published_at}
+		<time datetime={publishedAt}
 			>{` ${monthNames[date.getMonth()]} ${date.getDay()}, ${date.getFullYear()}`}</time
 		>
 		<h1 class="title">{title}</h1>
@@ -51,5 +53,4 @@
 	</div>
 </a>
 
-<style src='./style.css'></style>
-
+<style src="./style.css"></style>

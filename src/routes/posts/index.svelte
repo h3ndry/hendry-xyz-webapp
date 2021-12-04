@@ -2,35 +2,55 @@
 	export const prerender = true;
 
 	export async function load() {
-		const res = await fetch('http://localhost:1337/articles');
-		const articles = await res.json();
-
+		const res = await fetch(
+			'http://localhost:1337/api/posts?pagination[page]=1&pagination[pageSize]=20'
+		);
+		const res_json = await res.json();
 		return {
-			props: { articles: articles.reverse() }
+			props: { res_json }
 		};
 	}
 </script>
 
 <script lang="ts">
 	import PostCard from '$lib/cards/PostCard.svelte';
+	import Pagination from '$lib/pagination/Pagination.svelte';
+	import type { Data } from '$lib/types';
+	import { fetch_post } from '$lib/fetchData';
 
-	interface Articles {
-		name: string;
-		id: number;
+	export let res_json: Data;
+	let yscrol = 1000
+
+	async function handleNext() {
+		let page = res_json.meta.pagination.page + 1;
+		const url = `http://localhost:1337/api/posts?pagination[page]=${page}&pagination[pageSize]=5`;
+		res_json = await fetch_post(url);
+		yscrol = 0;	
 	}
 
-	export let articles: Articles[];
+	async function handlePrev() {
+		let page = res_json.meta.pagination.page - 1;
+		const url = `http://localhost:1337/api/posts?pagination[page]=${page}&pagination[pageSize]=5`;
+		res_json = await fetch_post(url);
+		yscrol = 0;	
+	}
+	console.log(yscrol);
 </script>
 
+<svelte:window bind:scrollY={yscrol} />
+
 <svelte:head>
-	<title>Home</title>
+	<title>Posts | Hendry's Website</title>
 </svelte:head>
 
 <section>
-	{#each articles as article (article.id)}
-		<PostCard {...article} />
+	{#each res_json.data.reverse() as post (post.id)}
+		<PostCard {...post.attributes} />
 	{/each}
-</section>
 
-<style>
-</style>
+	<Pagination
+		on:prev={handlePrev}
+		on:next={handleNext}
+		pagination={res_json.meta.pagination}
+	/>
+</section>
