@@ -23,7 +23,10 @@
 		'December'
 	];
 
+
 	const date = new Date(publishedAt);
+// console.log(date.getMonth(), date.getDate() )
+
 
 	let width = 4;
 	function handleMouseover() {
@@ -33,6 +36,7 @@
 	function handleMouseout() {
 		width = 4;
 	}
+
 </script>
 
 <a
@@ -45,7 +49,7 @@
 >
 	<div class="post-card">
 		<time datetime={publishedAt}
-			>{` ${monthNames[date.getMonth()]} ${date.getDay()}, ${date.getFullYear()}`}</time
+			>{` ${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`}</time
 		>
 		<h1 class="title">{title}</h1>
 		<Line {width} />

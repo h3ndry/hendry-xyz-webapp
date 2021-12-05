@@ -2,11 +2,11 @@
 	export const prerender = true;
 
 	export async function load({ page }) {
-		const res = await fetch(`http://localhost:1337/articles/?slug=${page.params.slug}`);
-		const articles = await res.json();
+		const res = await fetch(`https://hendry-xyz.herokuapp.com/api/posts?slug=${page.params.slug}`);
+		const res_json = await res.json();
 
 		return {
-			props: { articles }
+			props: { res_json }
 		};
 	}
 </script>
@@ -15,21 +15,23 @@
 	import Line from '$lib/Line.svelte';
 	import { markdown2html } from '$lib/convert';
 	import WrittenBy from '$lib/WrittenBy.svelte';
+	import type { Data } from '$lib/types';
 
-	export let articles;
-	let article = articles[0];
+	export let res_json: Data;
+	console.log(res_json)
+
 </script>
 
 <svelte:head>
-	<title>Post | {article.title}</title>
+	<title>Post | {res_json.data[0].attributes.slug}  </title>
 </svelte:head>
 
 <section>
 	<div class="wraper">
-		<WrittenBy name="Hendry" date={new Date(article.published_at).toLocaleDateString()} />
-		<h1>{article.title}</h1>
+		<WrittenBy name="Hendry" date={new Date(res_json.data[0].attributes.publishedAt).toLocaleDateString()} />
+		<h1>{res_json.data[0].attributes.title}</h1>
 		<center><Line width={5} /></center>
-		{@html markdown2html(article.content)}
+		{@html markdown2html(res_json.data[0].attributes.content)}
 	</div>
 </section>
 
