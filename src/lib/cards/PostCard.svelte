@@ -41,7 +41,7 @@
 
 <a
 	class="wraper-link"
-	href={`${slug}`}
+	href={`posts/${slug}`}
 	on:focus={handleMouseover}
 	on:mouseover={handleMouseover}
 	on:blur={handleMouseout}
