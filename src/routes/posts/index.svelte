@@ -34,7 +34,7 @@
 		res_json = await fetch_post(url);
 		yscrol = 0;	
 	}
-	console.log(yscrol);
+
 </script>
 
 <svelte:window bind:scrollY={yscrol} />

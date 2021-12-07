@@ -25,6 +25,7 @@ export interface Attributes {
 	slug: string;
 	title: string;
 	updatedAt: string;
+	text?: string;
 }
 
 export interface Post {
@@ -34,6 +35,11 @@ export interface Post {
 
 export interface Data {
 	data: Post[];
+	meta: Meta;
+}
+
+export interface DataAbout {
+	data: Post;
 	meta: Meta;
 }
 

@@ -18,7 +18,6 @@
 	import type { Data } from '$lib/types';
 
 	export let res_json: Data;
-	console.log(res_json)
 
 </script>
 

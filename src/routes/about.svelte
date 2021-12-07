@@ -12,11 +12,10 @@
 <script lang="ts">
 	import { markdown2html } from '$lib/convert';
 	import Line from '$lib/Line.svelte';
-	import type { Data } from '$lib/types';
+	import type { DataAbout } from '$lib/types';
 	import WrittenBy from '$lib/WrittenBy.svelte';
 
-	export let res_json: Data;
-
+	export let res_json: DataAbout;
 </script>
 
 <svelte:head>
