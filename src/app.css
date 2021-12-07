@@ -4,7 +4,7 @@
 	--font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
 	--font-mono: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
 	--pure-white: #ffffff;
-	--primary-color: #1f1f1f;
+	--primary-color: #1c1c1c;
 	--secondary-color: #bfbfbf;
 	--tertiary-color: #edf0f8;
 	--accent-color: #99c2e6;
@@ -33,7 +33,9 @@ body {
 #svelte {
 	min-height: 100vh;
 	display: flex;
+	position: relative;
 	flex-direction: column;
+	overflow-x: hidden;
 }
 
 p {
