@@ -2,7 +2,7 @@
 	export function load({ page }) {
 		return {
 			redirect: '/posts',
-			status: 308
+			status: 302
 		};
 	}
 </script>
