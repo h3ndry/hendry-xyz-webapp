@@ -53,13 +53,13 @@
 						class:active={$page.path === '/posts'}
 						on:click={toggleSidebar}
 					>
-						<a href="/posts">Posts</a>
+						<a sveltekit:prefetch href="/posts">Posts</a>
 					</li>
 					<li
 						class:active={$page.path === '/projects'}
 						on:click={toggleSidebar}
 					>
-						<a href="/projects">Projects</a>
+						<a sveltekit:prefetch href="/projects">Projects</a>
 					</li>
 					<li
 						class:active={$page.path === '/about'}
@@ -73,10 +73,10 @@
 		<nav class="desk">
 			<ul>
 				<li class:active={$page.path === '/posts'}>
-					<a href="/posts">Posts</a>
+					<a sveltekit:prefetch href="/posts">Posts</a>
 				</li>
 				<li class:active={$page.path === '/projects'}>
-					<a href="/projects">Projects</a>
+					<a sveltekit:prefetch href="/projects">Projects</a>
 				</li>
 				<li class:active={$page.path === '/about'}>
 					<a sveltekit:prefetch href="/about">About</a>
