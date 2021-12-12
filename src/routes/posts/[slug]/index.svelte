@@ -2,8 +2,10 @@
 	export const prerender = true;
 
 	export async function load({ page }) {
-		const res = await fetch(`https://hendry-xyz.herokuapp.com/api/posts?slug=${page.params.slug}`);
+		const res = await fetch(`https://hendry-xyz.herokuapp.com/api/posts?filters[slug][$eq]=${page.params.slug}`);
 		const res_json = await res.json();
+
+		console.log(page.params.slug)
 
 		return {
 			props: { res_json }
