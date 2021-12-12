@@ -50,10 +50,10 @@
 			<aside class:visible={sidebarVisible}>
 				<ul>
 					<li
-						class:active={$page.path === '/posts'}
+						class:active={$page.path === '/' }
 						on:click={toggleSidebar}
 					>
-						<a sveltekit:prefetch href="/posts">Posts</a>
+						<a sveltekit:prefetch href="/">Posts</a>
 					</li>
 					<li
 						class:active={$page.path === '/projects'}
@@ -72,8 +72,8 @@
 		</nav>
 		<nav class="desk">
 			<ul>
-				<li class:active={$page.path === '/posts'}>
-					<a sveltekit:prefetch href="/posts">Posts</a>
+				<li class:active={$page.path === '/'}>
+					<a sveltekit:prefetch href="/">Posts</a>
 				</li>
 				<li class:active={$page.path === '/projects'}>
 					<a sveltekit:prefetch href="/projects">Projects</a>
