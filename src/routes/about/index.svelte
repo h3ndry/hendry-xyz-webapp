@@ -1,12 +1,13 @@
 <script context="module" lang="ts">
 	export const prerender = true;
 	export async function load({ fetch }) {
-		const base_url = process.env['BASE_URL']
-		const res = await fetch(`${base_url}about-page`);
-		const res_json = await res.json();
-		return {
-			props: { res_json }
-		};
+		const res = await fetch('/about.json');
+		if (res.ok) {
+			const res_json = await res.json();
+			return {
+				props: { res_json }
+			};
+		}
 	}
 </script>
 
@@ -23,6 +24,9 @@
 	<title>About | Hendry's Website</title>
 </svelte:head>
 
+
+
+{#if res_json.data}
 <section>
 	<WrittenBy name="Hendry" date="" />
 	<h1 class="post-title">About</h1>
@@ -35,6 +39,9 @@
 		{@html markdown2html(res_json.data.attributes.text)}
 	</div>
 </section>
+{:else}
+	<p>Something went wrong</p>
+{/if}
 
 <style>
 	h1 {

@@ -1,14 +1,13 @@
 <script context="module" lang="ts">
 	export const prerender = true;
-	export async function load() {
-		const base_url = process.env['BASE_URL']
-		const res = await fetch(
-			`${base_url}posts?pagination[page]=1&pagination[pageSize]=10`
-		);
-		const res_json = await res.json();
-		return {
-			props: { res_json }
-		};
+	export async function load({ fetch }) {
+		const res = await fetch('/posts.json');
+		if (res.ok) {
+			const res_json = await res.json();
+			return {
+				props: { res_json }
+			};
+		}
 	}
 </script>
 
@@ -18,25 +17,22 @@
 	import type { Data } from '$lib/types';
 	import { fetch_post } from '$lib/fetchData';
 
-	const base_url = process.env['BASE_URL']
-
 	export let res_json: Data;
-	let yscrol = 1000
+	let yscrol = 1000;
 
-	async function handleNext() {
-		let page = res_json.meta.pagination.page + 1;
-		const url = `${base_url}posts?pagination[page]=${page}&pagination[pageSize]=10`;
-		res_json = await fetch_post(url);
-		yscrol = 0;	
-	}
+	// async function handleNext() {
+	// 	let page = res_json.meta.pagination.page + 1;
+	// 	const url = `${base_url}posts?pagination[page]=${page}&pagination[pageSize]=10`;
+	// 	res_json = await fetch_post(url);
+	// 	yscrol = 0;
+	// }
 
-	async function handlePrev() {
-		let page = res_json.meta.pagination.page - 1;
-		const url = `${base_url}posts?pagination[page]=${page}&pagination[pageSize]=10`;
-		res_json = await fetch_post(url);
-		yscrol = 0;	
-	}
-
+	// async function handlePrev() {
+	// 	let page = res_json.meta.pagination.page - 1;
+	// 	const url = `${base_url}posts?pagination[page]=${page}&pagination[pageSize]=10`;
+	// 	res_json = await fetch_post(url);
+	// 	yscrol = 0;
+	// }
 </script>
 
 <svelte:window bind:scrollY={yscrol} />
@@ -45,14 +41,16 @@
 	<title>Posts | Hendry's Website</title>
 </svelte:head>
 
-<section>
-	{#each res_json.data.reverse() as post (post.id)}
-		<PostCard {...post.attributes} />
-	{/each}
+{#if res_json.data}
+	<section>
+		{#each res_json.data.reverse() as post (post.id)}
+			<PostCard {...post.attributes} />
+		{/each}
 
-	<Pagination
-		on:prev={handlePrev}
-		on:next={handleNext}
-		pagination={res_json.meta.pagination}
-	/>
-</section>
+		<Pagination
+			pagination={res_json.meta.pagination}
+		/>
+	</section>
+{:else}
+	<p>Something went wrong</p>
+{/if}
