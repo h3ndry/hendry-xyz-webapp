@@ -1,7 +1,8 @@
 <script context="module" lang="ts">
 	export const prerender = true;
 	export async function load({ fetch }) {
-		const res = await fetch('https://hendry-xyz.herokuapp.com/api/about-page');
+		const base_url = process.env['BASE_URL']
+		const res = await fetch(`${base_url}about-page`);
 		const res_json = await res.json();
 		return {
 			props: { res_json }
