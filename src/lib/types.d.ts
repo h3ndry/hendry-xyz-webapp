@@ -42,4 +42,3 @@ export interface DataAbout {
 	data: Post;
 	meta: Meta;
 }
-

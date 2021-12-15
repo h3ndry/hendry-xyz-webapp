@@ -23,10 +23,8 @@
 		'December'
 	];
 
-
 	const date = new Date(publishedAt);
-// console.log(date.getMonth(), date.getDate() )
-
+	// console.log(date.getMonth(), date.getDate() )
 
 	let width = 4;
 	function handleMouseover() {
@@ -36,7 +34,6 @@
 	function handleMouseout() {
 		width = 4;
 	}
-
 </script>
 
 <a

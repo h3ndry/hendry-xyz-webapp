@@ -1,15 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	let sidebarVisible = false;
-		let sidebar;
+	let sidebar;
 	let sidebarButton: SVGSVGElement;
-
 
 	function toggleSidebar() {
 		sidebarVisible = !sidebarVisible;
 	}
-
-
 
 	function handleOuterClick(e) {
 		// if (
@@ -21,7 +18,7 @@
 		// )
 		// 	return;
 		// toggleSidebar();
-		// console.log(e.target)	
+		// console.log(e.target)
 	}
 </script>
 
@@ -49,22 +46,13 @@
 
 			<aside class:visible={sidebarVisible}>
 				<ul>
-					<li
-						class:active={$page.path === '/' }
-						on:click={toggleSidebar}
-					>
+					<li class:active={$page.path === '/'} on:click={toggleSidebar}>
 						<a sveltekit:prefetch href="/">Posts</a>
 					</li>
-					<li
-						class:active={$page.path === '/projects'}
-						on:click={toggleSidebar}
-					>
+					<li class:active={$page.path === '/projects'} on:click={toggleSidebar}>
 						<a sveltekit:prefetch href="/projects">Projects</a>
 					</li>
-					<li
-						class:active={$page.path === '/about'}
-						on:click={toggleSidebar}
-					>
+					<li class:active={$page.path === '/about'} on:click={toggleSidebar}>
 						<a sveltekit:prefetch href="/about">About</a>
 					</li>
 				</ul>
@@ -86,4 +74,4 @@
 	</div>
 </header>
 
-<style src="./style.css"></style>
+<style lang="scss" src="style.scss"></style>

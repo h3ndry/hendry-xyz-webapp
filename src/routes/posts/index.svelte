@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
 	export const prerender = true;
-// https://hendry-xyz.herokuapp.com/api/about-page
+	// https://hendry-xyz.herokuapp.com/api/about-page
 	export async function load() {
 		const res = await fetch(
 			'https://hendry-xyz.herokuapp.com/api/posts?pagination[page]=1&pagination[pageSize]=10'
@@ -19,22 +19,21 @@
 	import { fetch_post } from '$lib/fetchData';
 
 	export let res_json: Data;
-	let yscrol = 1000
+	let yscrol = 1000;
 
 	async function handleNext() {
 		let page = res_json.meta.pagination.page + 1;
 		const url = `https://hendry-xyz.herokuapp.com/api/posts?pagination[page]=${page}&pagination[pageSize]=10`;
 		res_json = await fetch_post(url);
-		yscrol = 0;	
+		yscrol = 0;
 	}
 
 	async function handlePrev() {
 		let page = res_json.meta.pagination.page - 1;
 		const url = `https://hendry-xyz.herokuapp.com/api/posts?pagination[page]=${page}&pagination[pageSize]=10`;
 		res_json = await fetch_post(url);
-		yscrol = 0;	
+		yscrol = 0;
 	}
-
 </script>
 
 <svelte:window bind:scrollY={yscrol} />
@@ -48,9 +47,5 @@
 		<PostCard {...post.attributes} />
 	{/each}
 
-	<Pagination
-		on:prev={handlePrev}
-		on:next={handleNext}
-		pagination={res_json.meta.pagination}
-	/>
+	<Pagination on:prev={handlePrev} on:next={handleNext} pagination={res_json.meta.pagination} />
 </section>

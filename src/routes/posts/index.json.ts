@@ -1,4 +1,4 @@
-import { claim_space } from "svelte/internal";
+import { claim_space } from 'svelte/internal';
 
 export const get = async () => {
 	try {
@@ -12,7 +12,6 @@ export const get = async () => {
 		// }
 
 		return { status: 200, body: res_json };
-
 	} catch (err) {
 		return {
 			status: 500,

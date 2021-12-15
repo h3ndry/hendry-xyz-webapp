@@ -47,9 +47,7 @@
 			<PostCard {...post.attributes} />
 		{/each}
 
-		<Pagination
-			pagination={res_json.meta.pagination}
-		/>
+		<Pagination pagination={res_json.meta.pagination} />
 	</section>
 {:else}
 	<p>Something went wrong</p>

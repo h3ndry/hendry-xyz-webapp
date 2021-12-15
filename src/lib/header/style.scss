@@ -1,21 +1,19 @@
+@use 'src/styles/mixins' as *;
+
 header {
-	display: flex;
-	justify-content: space-between;
+	position: relative;
 	padding: 0.5rem 0;
 	margin: 0 0 3rem 0;
 	box-shadow: 0 2px 2px -2px rgb(255 255 255 / 10%);
-	position: relative;
 }
 
 .inner {
+	@include flex($justify: between, $align: center);
 	width: 90%;
 	max-width: 800px;
 	margin: 1rem auto;
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	margin: 0 auto;
-	/* overflow-y: hidden; */
 }
 
 svg {
@@ -34,7 +32,7 @@ svg path {
 }
 
 ul {
-	display: flex;
+	@include flex();
 }
 
 .nav-title {
@@ -54,11 +52,10 @@ ul {
 }
 
 ul {
+	@include flex($justify: center, $align: center);
 	position: relative;
 	padding: 0;
 	margin: 0;
-	justify-content: center;
-	align-items: center;
 	list-style: none;
 	background: var(--background);
 	background-size: contain;
@@ -108,8 +105,8 @@ aside {
 }
 
 aside.visible {
-    transform: none;
-    transition-duration: 350ms;
+	transform: none;
+	transition-duration: 350ms;
 }
 
 aside ul {
@@ -117,28 +114,24 @@ aside ul {
 	align-items: stretch;
 }
 
-
 aside ul li:not(:last-child) {
 	margin-bottom: 1rem;
-    /* transform: none; */
+	/* transform: none; */
 }
 
 aside ul li a {
 	/* background-color: red; */
 	width: 100%;
 	display: inline-block;
-	padding: .5rem 2rem;
+	padding: 0.5rem 2rem;
 	text-decoration: none;
 }
-
 
 aside ul li.active {
 	background-color: #2d2d2d;
 	border-bottom: none;
 	/* transform:  */
-
 }
-
 
 @media (min-width: 490px) {
 	.mobi {
