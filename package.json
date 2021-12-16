@@ -2,7 +2,7 @@
 	"name": "hendry-xyz-webapp",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "svelte-kit dev",
+		"dev": "env-cmd svelte-kit dev",
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -35,6 +35,8 @@
 		"@fontsource/fira-mono": "^4.5.0",
 		"@lukeed/uuid": "^2.0.0",
 		"cookie": "^0.4.1",
+		"dotenv": "^10.0.0",
+		"env-cmd": "^10.1.0",
 		"moment": "^2.29.1",
 		"showdown": "^1.9.1"
 	}
