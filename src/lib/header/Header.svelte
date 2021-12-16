@@ -36,6 +36,7 @@
 				xml:space="preserve"
 				viewBox="0 0 500 500"
 				on:click={toggleSidebar}
+				class:active={sidebarVisible}
 			>
 				<g transform="matrix(1.3333333,0,0,-1.3333333,-66.326109,633.05707)">
 					<path d="M 62.297785,369.40376 H 413.47816" />
