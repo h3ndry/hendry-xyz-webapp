@@ -6,8 +6,6 @@
 		);
 		const res_json = await res.json();
 
-		console.log(res_json);
-
 		return {
 			props: { res_json }
 		};

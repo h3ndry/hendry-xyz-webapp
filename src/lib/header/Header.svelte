@@ -1,25 +1,26 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	let sidebarVisible = false;
-	let sidebar;
+	let sidebar: HTMLElement;
 	let sidebarButton: SVGSVGElement;
 
 	function toggleSidebar() {
 		sidebarVisible = !sidebarVisible;
 	}
 
-	function handleOuterClick(e) {
-		// if (
-		// 	!sidebarVisible ||
-		// 	e.target === sidebarButton ||
-		// 	sidebarButton.contains(e.target) ||
-		// 	e.target === sidebar ||
-		// 	sidebar.contains(e.target)
-		// )
-		// 	return;
-		// toggleSidebar();
-		// console.log(e.target)
-	}
+	const handleOuterClick = (e: MouseEvent) => {
+		if (
+			!(
+				!sidebarVisible ||
+				e.target === sidebarButton ||
+				sidebarButton.contains(e.target as Node) ||
+				e.target === sidebar ||
+				sidebar.contains(e.target as Node)
+			)
+		) {
+			toggleSidebar();
+		}
+	};
 </script>
 
 <svelte:window on:click={handleOuterClick} />
@@ -45,7 +46,7 @@
 				</g>
 			</svg>
 
-			<aside class:visible={sidebarVisible}>
+			<aside class:visible={sidebarVisible} bind:this={sidebar}>
 				<ul>
 					<li class:active={$page.url.pathname === '/'} on:click={toggleSidebar}>
 						<a sveltekit:prefetch href="/">Posts</a>
