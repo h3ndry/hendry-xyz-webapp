@@ -1,4 +1,4 @@
-import { claim_space } from 'svelte/internal';
+// import { claim_space } from 'svelte/internal';
 
 export const get = async () => {
 	try {
@@ -6,6 +6,7 @@ export const get = async () => {
 		const res = await fetch(`${base_url}posts?pagination[page]=1&pagination[pageSize]=10`);
 
 		const res_json = await res.json();
+        // console.log(res_json)
 
 		// if(!res_json.data) {
 		// 	throw { error: "error"	}
@@ -16,6 +17,6 @@ export const get = async () => {
 		return {
 			status: 500,
 			body: 'Internal server error'
-		};
+		}
 	}
 };

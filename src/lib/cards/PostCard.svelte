@@ -5,8 +5,8 @@
 	export let publishedAt: string;
 	export let description: string;
 	export let slug: string;
-	export let updatedAt: string;
-	export let content: string;
+	// export let updatedAt: string;
+	// export let content: string;
 
 	const monthNames = [
 		'January',
@@ -38,7 +38,7 @@
 
 <a
 	class="wraper-link"
-	href={`posts/${slug}`}
+	href={`/posts/${slug}`}
 	on:focus={handleMouseover}
 	on:mouseover={handleMouseover}
 	on:blur={handleMouseout}

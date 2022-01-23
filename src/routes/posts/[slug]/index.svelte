@@ -1,18 +1,18 @@
 <script context="module" lang="ts">
-	export const prerender = true;
 
-	export async function load({ page }) {
+	export async function load({ url, params }) {
 		const res = await fetch(
-			`https://hendry-xyz.herokuapp.com/api/posts?filters[slug][$eq]=${page.params.slug}`
+			`${url.origin}/posts/${params.slug}.json`
 		);
 		const res_json = await res.json();
 
-		console.log(page.params.slug);
+		console.log(res_json);
 
 		return {
 			props: { res_json }
 		};
 	}
+
 </script>
 
 <script lang="ts">
