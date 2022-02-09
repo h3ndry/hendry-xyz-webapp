@@ -14,9 +14,7 @@
 </script>
 
 <script lang="ts">
-	import Line from '$lib/Line.svelte';
-	import { markdown2html } from '$lib/convert';
-	import WrittenBy from '$lib/WrittenBy.svelte';
+	import {Line, markdown2html, WrittenBy  } from '$lib';
 	import type { Data } from '$lib/types';
 
 	export let res_json: Data;

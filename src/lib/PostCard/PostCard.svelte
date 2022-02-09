@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Line from '$lib/Line.svelte';
+	import { Line } from '$lib';
 
 	export let title: string;
 	export let publishedAt: string;

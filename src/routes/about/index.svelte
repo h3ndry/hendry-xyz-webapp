@@ -12,10 +12,8 @@
 </script>
 
 <script lang="ts">
-	import { markdown2html } from '$lib/convert';
-	import Line from '$lib/Line.svelte';
+	import { markdown2html, Line, WrittenBy   } from '$lib';
 	import type { DataAbout } from '$lib/types';
-	import WrittenBy from '$lib/WrittenBy.svelte';
 
 	export let res_json: DataAbout;
 </script>

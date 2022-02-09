@@ -12,8 +12,7 @@
 </script>
 
 <script lang="ts">
-	import PostCard from '$lib/cards/PostCard.svelte';
-	import Pagination from '$lib/pagination/Pagination.svelte';
+	import { PostCard, Pagination  } from '$lib';
 	import type { Data } from '$lib/types';
 	import { fetch_post } from '$lib/fetchData';
 

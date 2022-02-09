@@ -1,6 +1,6 @@
 import showdown from 'showdown';
 
-export const markdown2html = (text: string) => {
+export default function markdown2html (text: string) {
 	const converter = new showdown.Converter();
 
 	return converter.makeHtml(text);
