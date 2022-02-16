@@ -11,7 +11,9 @@
 	export let project_id: string;
 	export let images: any;
 
-	const base_url = process.env['BASE_URL'];
+	// I hate what I am doing here, really need to find a better
+	// way to have the base url expose to all part of the app
+	const base_url = 'http://localhost:1337';
 
 	const image_path = thumbnail.data.attributes.url;
 	// const { origin } = $page.url
