@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+    import { Icon, Button } from '$lib';
 
 	export let thumbnail: any;
 	export let title: string;
@@ -18,14 +19,22 @@
 	const image_path = thumbnail.data.attributes.url;
 	// const { origin } = $page.url
 
-	console.log(image_path, $page.url.origin);
 </script>
 
 <div class="project-card">
-	<div class="img">
-		<img src="{base_url}{image_path}" alt="" />
+	<div class="img"
+
+	style="background-image: url('{base_url}{image_path}')"
+    >
+		<!-- <img src="{base_url}{image_path}" alt="" /> -->
 	</div>
 	<div class="details">
-		<h3>{title}</h3>
+		<h3 class='title' >{title}</h3>
+		<p class="description">
+			{description}
+		</p>
+		<Button href="/"> Read about Project <Icon name='rght_arrow' class='right_arrow' /> </Button>
 	</div>
 </div>
+
+<style src="./Style.scss" lang="scss"></style>
