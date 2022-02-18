@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+    import { Icon } from '$lib'
 	let sidebarVisible = false;
 	let sidebar: HTMLElement;
 	let sidebarButton: SVGSVGElement;
@@ -32,6 +33,9 @@
 		</a>
 
 		<nav class="mobi">
+        
+        <!-- <Icon class="menu" name="menu" /> -->
+
 			<svg
 				bind:this={sidebarButton}
 				xml:space="preserve"
@@ -45,6 +49,7 @@
 					<path d="M 62.67053,287.30031 H 413.36485" />
 				</g>
 			</svg>
+
 
 			<aside class:visible={sidebarVisible} bind:this={sidebar}>
 				<ul>
